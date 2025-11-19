@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block titulo %}Lista de tareas{% endblock %}
+{% block contenido %}
+<h2>Mis Tareas:</h2>
+<ul>
+    {% for tarea in tareas %}
+    <li>{{ tarea }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

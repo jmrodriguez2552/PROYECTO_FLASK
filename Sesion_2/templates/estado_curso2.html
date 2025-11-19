@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block titulo %}Estado del curso{% endblock %}
+
+{% block contenido %}
+<h2>Estado del curso </h2>
+{% if activo %}
+<p>El curso está actualmente activo.</p>
+{% else %}
+<p>El curso no está activo en este momento.</p>
+{% endif %}
+{% endblock %}
