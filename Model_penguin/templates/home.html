@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicción sobre dataset pingüinos</title>
+</head>
+<body>
+    <h1>Bienvenido a la app para predicción del Penguin dataset</h1>
+    <h2>Complete los siguientes datos para obtener una predicción:</h2>
+</body>
+    <form action="{{ url_for('result') }}" method="post">
+        <label for="bill_length_mm">longitud del pico:</label>
+		<input type="text" id="bill_length_mm" name="bill_length_mm" required>
+		<br><br>
+
+		<label for="bill_depth_mm">Profundidad del pico:</label>
+		<input type="text" id="bill_depth_mm" name="bill_depth_mm" required>
+		<br><br>
+
+		<label for="flipper_length_mm">Longitud de la aleta:</label>
+		<input type="text" id="flipper_length_mm" name="flipper_length_mm" required>
+		<br><br>
+
+        <label for="body_mass_g">Masa corporal:</label>
+		<input type="text" id="body_mass_g" name="body_mass_g" required>
+		<br><br>
+
+		<button type="submit">Predicción</button>
+	</form>
+</html>
