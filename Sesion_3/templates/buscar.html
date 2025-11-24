@@ -11,9 +11,11 @@
     <input type="text" id = "texto" name="texto">
     <button type="submit">Buscar</button>
 </form>
-{% if texto %}
+{% if texto  == 'CEDAPY'%}
 <h2>Resultados para: "{{ texto }}"</h2>
-<p>(Resultados supuestos de la búsqueda)</p>
+<p>CEDAPY es un curso de especialización de aplicaciones web en lenguaje PYTHON impartido en el IES Ribera de Castilla de Valladolid</p>
+{% else %}
+<h2>El texto: ({{ texto }}) no encontró respuesta</h2>
 {% endif %}
 </body>
 </html>

@@ -27,6 +27,27 @@ def registro():
         # Mostrar el formulario vacio (GET)
         return render_template("registro.html")
 
+@app.route('/registro_validado', methods=["GET", "POST"])
+def registro_validado():
+    errores = []
+    nombre = ''
+    correo = ''
+    if request.method == "POST":
+        nombre = request.form.get("nombre").strip()
+        correo = request.form.get("correo").strip()
+    if not nombre:
+        errores.append("Debes introducir nombre.")
+    if not correo:
+        errores.append("Debes introducir correo.")
+    if errores:
+        return render_template('registro_validado.html',
+                               errores=errores, nombre=nombre, correo=correo)
+    else:
+        return render_template("registro_ok.html", nombre=nombre, correo=correo)
+
+    # Si es Get, mostrar formulario vacío
+    return render_template("registro_validado.html", errores=errores, nombre=nombre, correo=correo)
+
 
 @app.route("/sumar", methods=["GET", "POST"])
 def sumar():
