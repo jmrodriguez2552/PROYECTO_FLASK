@@ -7,9 +7,11 @@ import joblib
 # Función de predicción
 def ValuePredictor(to_predict_list):
     to_predict = np.array(to_predict_list).reshape(1, 4)
+    loaded_scaler = joblib.load("scaler_model.pkl")
+    to_predict_scaled = loaded_scaler.transform(to_predict)
     # loaded_model = pickle.load(open("model.pkl", "rb"))
     loaded_model = joblib.load("model.pkl") # Cargamos el modelo
-    result = loaded_model.predict(to_predict)
+    result = loaded_model.predict(to_predict_scaled)
     return result[0]
 
 app = Flask(__name__)
